@@ -1,53 +1,25 @@
 # Todo List API
 
-API REST simples para gerenciamento de tarefas, desenvolvida com Java e Spring Boot.
-O projeto é simples, mas segue a arquitetura em camadas padrão (Controller → Service → Repository).
-
----
+API REST para gerenciamento de tarefas, desenvolvida com Java e Spring Boot.
 
 ## Tecnologias
 
 - Java 17
 - Spring Boot 3.5.14
 - Spring Data JPA
-- Spring Web (REST)
 - MySQL
 - Maven
-
----
-
-## Estrutura do Projeto
-
-```
-todoolist/
-└── src/
-    └── main/
-        └── java/br/com/victor/todoolist/
-            ├── controller/
-            │   └── TodoController.java      # Endpoints REST
-            ├── entity/
-            │   └── Todo.java                # Entidade JPA (tabela: todos)
-            ├── repository/
-            │   └── TodoRepository.java      # Acesso ao banco via JpaRepository
-            ├── service/
-            │   └── TodoService.java         # Regras de negócio
-            └── TodoolistApplication.java    # Ponto de entrada da aplicação
-```
-
----
 
 ## Endpoints
 
 URL base: `http://localhost:8080`
 
-| Método   | Endpoint       | Descrição                                   |
-|----------|----------------|---------------------------------------------|
-| `POST`   | `/todos`       | Criar uma nova tarefa                       |
-| `GET`    | `/todos`       | Listar todas as tarefas (ordenadas)         |
-| `PUT`    | `/todos`       | Atualizar uma tarefa existente              |
-| `DELETE` | `/todos/{id}`  | Deletar uma tarefa pelo ID                  |
-
-> Todos os endpoints retornam a lista atualizada de tarefas.
+| Método   | Endpoint      | Descrição                          |
+|----------|---------------|------------------------------------|
+| `POST`   | `/todos`      | Criar uma nova tarefa              |
+| `GET`    | `/todos`      | Listar todas as tarefas            |
+| `PUT`    | `/todos`      | Atualizar uma tarefa existente     |
+| `DELETE` | `/todos/{id}` | Deletar uma tarefa pelo ID         |
 
 ### Exemplo de body (POST / PUT)
 
@@ -60,35 +32,27 @@ URL base: `http://localhost:8080`
 }
 ```
 
----
-
 ## Como rodar
 
-### Pré-requisitos
+**Pré-requisitos:** Java 17+, Maven, MySQL
 
-- Java 17+
-- Maven
-- MySQL
-
-### Configurar o banco de dados
-
+**1. Criar o banco de dados:**
 ```sql
-CREATE DATABASE todoolist;
+CREATE DATABASE todolist;
 ```
 
-Configure o arquivo `src/main/resources/application.properties`:
+**2. Criar o arquivo de configuração local:**
 
+Crie `src/main/resources/application-local.properties` com suas credenciais:
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/todoolist
+spring.datasource.url=jdbc:mysql://localhost:3306/todolist
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-### Rodar a aplicação
-
+**3. Rodar:**
 ```bash
-cd todoolist
 ./mvnw spring-boot:run
 ```
 
@@ -96,6 +60,19 @@ A API estará disponível em `http://localhost:8080`.
 
 ---
 
-## Autor
+## Estrutura
 
-Feito por **Victor**
+```
+todoolist/
+└── src/main/java/br/com/victor/todoolist/
+    ├── controller/
+    │   └── TodoController.java
+    ├── entity/
+    │   └── Todo.java
+    ├── repository/
+    │   └── TodoRepository.java
+    ├── service/
+    │   └── TodoService.java
+    └── TodoolistApplication.java
+```
+
