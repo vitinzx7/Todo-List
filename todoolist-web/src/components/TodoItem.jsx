@@ -23,6 +23,7 @@ function TodoItem({ todo, onTodoUpdated, onTodoDeleted }) {
       <button onClick={handleToggle}>
         {todo.realizado ? "Desmarcar" : "Marcar como realizado"}
       </button>
+      <button onClick={handleDelete}>Excluir</button>
     </div>
   )
 }
