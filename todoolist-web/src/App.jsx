@@ -19,6 +19,10 @@ function App() {
     setTodos(todos)
   }
 
+  function handleTodoDeleted(todos) {
+    setTodos(todos)
+  }
+
   return (
     <div>
       <h1>Minha Todo List</h1>
@@ -26,7 +30,7 @@ function App() {
       {[...todos]
         .sort((a, b) => a.prioridade - b.prioridade)
         .map(todo => (
-          <TodoItem key={todo.id} todo={todo} onTodoUpdated={handleTodoUpdated} />
+          <TodoItem key={todo.id} todo={todo} onTodoUpdated={handleTodoUpdated} onTodoDeleted={handleTodoDeleted} />
         ))}
 
 
