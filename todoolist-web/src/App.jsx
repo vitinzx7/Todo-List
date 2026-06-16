@@ -24,14 +24,20 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app">
       <h1>Minha Todo List</h1>
-      <TodoForm onTodoCreated={handleTodoCreated} />
-      {[...todos]
-        .sort((a, b) => a.prioridade - b.prioridade)
-        .map(todo => (
-          <TodoItem key={todo.id} todo={todo} onTodoUpdated={handleTodoUpdated} onTodoDeleted={handleTodoDeleted} />
-        ))}
+      <div className="app-layout">
+        <aside className="app-form">
+          <TodoForm onTodoCreated={handleTodoCreated} />
+        </aside>
+        <section className="app-list">
+          {[...todos]
+            .sort((a, b) => a.prioridade - b.prioridade)
+            .map(todo => (
+              <TodoItem key={todo.id} todo={todo} onTodoUpdated={handleTodoUpdated} onTodoDeleted={handleTodoDeleted} />
+            ))}
+        </section>
+      </div>
 
 
     </div>
