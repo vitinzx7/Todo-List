@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { createTodo } from '../api/todoApi'
+import './TodoForm.css'
 
 function TodoForm({ onTodoCreated }) {
   const [nome, setNome] = useState('')
@@ -13,7 +14,7 @@ function TodoForm({ onTodoCreated }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="todo-form" onSubmit={handleSubmit}>
       <input
         value={nome}
         onChange={e => setNome(e.target.value)}
@@ -25,14 +26,12 @@ function TodoForm({ onTodoCreated }) {
         onChange={e => setDescricao(e.target.value)}
         placeholder="Descrição"
       />
-      <input
-        type="number"
-        value={prioridade}
-        onChange={e => setPrioridade(e.target.value)}
-        placeholder="Prioridade"
-        min="1"
-        max="5"
-      />
+      <select value={prioridade} onChange={e => setPrioridade(e.target.value)}>
+        <option value="4">Máximo</option>
+        <option value="3">Alta</option>
+        <option value="2">Média</option>
+        <option value="1">Baixa</option>
+      </select>
       <button type="submit">Salvar</button>
     </form>
   )

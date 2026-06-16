@@ -25,14 +25,14 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Minha Todo List</h1>
+      <h1>Todo List</h1>
       <div className="app-layout">
         <aside className="app-form">
           <TodoForm onTodoCreated={handleTodoCreated} />
         </aside>
         <section className="app-list">
           {[...todos]
-            .sort((a, b) => a.prioridade - b.prioridade)
+            .sort((a, b) => b.prioridade - a.prioridade)
             .map(todo => (
               <TodoItem key={todo.id} todo={todo} onTodoUpdated={handleTodoUpdated} onTodoDeleted={handleTodoDeleted} />
             ))}

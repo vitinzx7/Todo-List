@@ -4,7 +4,7 @@
   border-radius: 12px;
   padding: 16px 20px;
   margin-bottom: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(6px);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
@@ -46,6 +46,19 @@
   background-color: #ef4444;
 }
 
+.todo-item input {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: #f6f7c7;
+  color: #333;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
 .todo-item button {
   margin-top: 12px;
   margin-right: 8px;
@@ -58,6 +71,14 @@
   background-color: #5632ec;
   color: #fff;
   transition: background-color 0.2s ease;
+}
+
+.todo-item button.btn-toggle {
+  background-color: #91be7f;
+}
+
+.todo-item button.btn-toggle:hover {
+  background-color: #6aab55;
 }
 
 .todo-item button:hover {
