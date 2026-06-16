@@ -1,12 +1,17 @@
 import './TodoItem.css'
-import { updateTodo } from '../api/todoApi'
+import { updateTodo, deleteTodo } from '../api/todoApi'
 
 
-function TodoItem({ todo, onTodoUpdated }) {
+function TodoItem({ todo, onTodoUpdated, onTodoDeleted }) {
 
   function handleToggle() {
     updateTodo({ ...todo, realizado: !todo.realizado })
       .then(todos => onTodoUpdated(todos))
+  }
+
+  function handleDelete() {
+    deleteTodo(todo.id)
+      .then(todos => onTodoDeleted(todos))
   }
 
   return (
