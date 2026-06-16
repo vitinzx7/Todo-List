@@ -15,6 +15,9 @@ function TodoItem({ todo, onTodoUpdated }) {
       <p><strong>Descrição:</strong> {todo.descricao}</p>
       <p><strong>Prioridade:</strong> {todo.prioridade}</p>
       <p><strong>Status:</strong> {todo.realizado ? "Realizado" : "Pendente"}</p>
+      <button onClick={handleToggle}>
+        {todo.realizado ? "Desmarcar" : "Marcar como realizado"}
+      </button>
     </div>
   )
 }
