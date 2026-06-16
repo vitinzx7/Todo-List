@@ -4,7 +4,7 @@ import TodoItem from './components/TodoItem'
 
 function App() {
    const [todos, setTodos] = useState([
-  { id: 1, nome: "Estudar React", descricao: "Aprender hooks", realizado: false, prioridade: 54 }
+  { id: 2, nome: "Estudar React", descricao: "teste rapido", realizado: false, prioridade: 54 }
 ])
 
 
