@@ -1,8 +1,10 @@
+import { useState } from 'react'
 import './TodoItem.css'
 import { updateTodo, deleteTodo } from '../api/todoApi'
 
 
 function TodoItem({ todo, onTodoUpdated, onTodoDeleted }) {
+  const [aberto, setAberto] = useState(false)
 
   function handleToggle() {
     updateTodo({ ...todo, realizado: !todo.realizado })
