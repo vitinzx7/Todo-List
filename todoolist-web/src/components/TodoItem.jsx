@@ -17,7 +17,7 @@ function TodoItem({ todo, onTodoUpdated, onTodoDeleted }) {
   }
 
   return (
-    <div className="todo-item">
+    <div className="todo-item" onClick={() => setAberto(!aberto)}>
       <p><strong>Nome:</strong> {todo.nome}</p>
       <p><strong>Descrição:</strong> {todo.descricao}</p>
       <p><strong>Prioridade:</strong> {todo.prioridade}</p>
