@@ -26,3 +26,10 @@ export async function updateTodo(todo) {
   })
   return res.json()
 }
+
+export async function deleteTodo(id) {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: "DELETE"
+  })
+  return res.json()
+}
