@@ -18,8 +18,10 @@ function TodoItem({ todo, onTodoUpdated, onTodoDeleted }) {
 
   return (
     <div className="todo-item" onClick={() => setAberto(!aberto)}>
-      <p><strong>Nome:</strong> {todo.nome}</p>
-      <p><strong>Status:</strong> {todo.realizado ? "Realizado" : "Pendente"}</p>
+      <div className="todo-header">
+        <p><strong>{todo.nome}</strong></p>
+        <span className={`status-dot ${todo.realizado ? "realizado" : "pendente"}`}></span>
+      </div>
 
       {aberto && (
         <>

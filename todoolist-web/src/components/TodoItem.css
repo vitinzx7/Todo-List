@@ -1,0 +1,73 @@
+.todo-item {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.todo-item p strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-dot.realizado {
+  background-color: #22c55e;
+}
+
+.status-dot.pendente {
+  background-color: #ef4444;
+}
+
+.todo-item button {
+  margin-top: 12px;
+  margin-right: 8px;
+  padding: 7px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: #5632ec;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.todo-item button:hover {
+  background-color: #3d20e8;
+}
+
+.todo-item button:last-child {
+  background-color: rgba(220, 38, 38, 0.4);
+}
+
+.todo-item button:last-child:hover {
+  background-color: rgba(220, 38, 38, 0.7);
+}
