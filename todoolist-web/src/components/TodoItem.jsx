@@ -1,11 +1,20 @@
-function TodoItem({ todo }) {
-  return (
-    <div>
-      <p>{todo.nome}</p>
-      <p>{todo.descricao}</p>
-      <p>{todo.prioridade}</p>
-      <p>{todo.realizado ? "Realizado" : "Pendente"}</p>
+import './TodoItem.css'
+import { updateTodo } from '../api/todoApi'
 
+
+function TodoItem({ todo, onTodoUpdated }) {
+
+  function handleToggle() {
+    updateTodo({ ...todo, realizado: !todo.realizado })
+      .then(todos => onTodoUpdated(todos))
+  }
+
+  return (
+    <div className="todo-item">
+      <p><strong>Nome:</strong> {todo.nome}</p>
+      <p><strong>Descrição:</strong> {todo.descricao}</p>
+      <p><strong>Prioridade:</strong> {todo.prioridade}</p>
+      <p><strong>Status:</strong> {todo.realizado ? "Realizado" : "Pendente"}</p>
     </div>
   )
 }
