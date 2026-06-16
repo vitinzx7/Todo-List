@@ -38,11 +38,11 @@
   flex-shrink: 0;
 }
 
-.status-dot.realizado {
+.status-dot.done {
   background-color: #22c55e;
 }
 
-.status-dot.pendente {
+.status-dot.pending {
   background-color: #ef4444;
 }
 

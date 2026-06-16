@@ -3,36 +3,37 @@ import { createTodo } from '../api/todoApi'
 import './TodoForm.css'
 
 function TodoForm({ onTodoCreated }) {
-  const [nome, setNome] = useState('')
-  const [descricao, setDescricao] = useState('')
-  const [prioridade, setPrioridade] = useState(1)
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [priority, setPriority] = useState(1)
 
   function handleSubmit(e) {
     e.preventDefault()
-    createTodo({ nome, descricao, prioridade, realizado: false })
+    createTodo({ nome: name, descricao: description, prioridade: priority, realizado: false })
       .then(todos => onTodoCreated(todos))
   }
 
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
+      <h2 className="form-title">New Task</h2>
       <input
-        value={nome}
-        onChange={e => setNome(e.target.value)}
-        placeholder="Nome"
+        value={name}
+        onChange={e => setName(e.target.value)}
+        placeholder="Name"
         required
       />
       <input
-        value={descricao}
-        onChange={e => setDescricao(e.target.value)}
-        placeholder="Descrição"
+        value={description}
+        onChange={e => setDescription(e.target.value)}
+        placeholder="Description"
       />
-      <select value={prioridade} onChange={e => setPrioridade(e.target.value)}>
-        <option value="4">Máximo</option>
-        <option value="3">Alta</option>
-        <option value="2">Média</option>
-        <option value="1">Baixa</option>
+      <select value={priority} onChange={e => setPriority(e.target.value)}>
+        <option value="4">Maximum</option>
+        <option value="3">High</option>
+        <option value="2">Medium</option>
+        <option value="1">Low</option>
       </select>
-      <button type="submit">Salvar</button>
+      <button type="submit">Save</button>
     </form>
   )
 }

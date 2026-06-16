@@ -2,18 +2,17 @@ import { useState } from 'react'
 import './TodoItem.css'
 import { updateTodo, deleteTodo } from '../api/todoApi'
 
-
-const urgenciaLabel = { 1: "Baixa", 2: "Média", 3: "Alta", 4: "Máximo" }
+const urgencyLabel = { 1: "Low", 2: "Medium", 3: "High", 4: "Maximum" }
 
 function TodoItem({ todo, onTodoUpdated, onTodoDeleted }) {
-  const [aberto, setAberto] = useState(false)
-  const [nome, setNome] = useState(todo.nome)
-  const [descricao, setDescricao] = useState(todo.descricao)
-  const [prioridade, setPrioridade] = useState(todo.prioridade)
+  const [open, setOpen] = useState(false)
+  const [name, setName] = useState(todo.nome)
+  const [description, setDescription] = useState(todo.descricao)
+  const [priority, setPriority] = useState(todo.prioridade)
 
-  function handleSalvar(e) {
+  function handleSave(e) {
     e.stopPropagation()
-    updateTodo({ ...todo, nome, descricao, prioridade })
+    updateTodo({ ...todo, nome: name, descricao: description, prioridade: priority })
       .then(todos => onTodoUpdated(todos))
   }
 
@@ -30,30 +29,34 @@ function TodoItem({ todo, onTodoUpdated, onTodoDeleted }) {
   }
 
   return (
-    <div className="todo-item" onClick={() => setAberto(!aberto)}>
+    <div className="todo-item" onClick={() => setOpen(!open)}>
       <div className="todo-header">
-        <p><strong>{nome}</strong></p>
+        <p>
+          <strong style={{ textDecoration: todo.realizado ? 'line-through' : 'none', opacity: todo.realizado ? 0.6 : 1 }}>
+            {name}
+          </strong>
+        </p>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <small>{urgenciaLabel[todo.prioridade]}</small>
-          <span className={`status-dot ${todo.realizado ? "realizado" : "pendente"}`}></span>
+          <small>{urgencyLabel[todo.prioridade]}</small>
+          <span className={`status-dot ${todo.realizado ? "done" : "pending"}`}></span>
         </div>
       </div>
 
-      {aberto && (
+      {open && (
         <>
-          <input value={nome} onChange={e => setNome(e.target.value)} onClick={e => e.stopPropagation()} />
-          <input value={descricao} onChange={e => setDescricao(e.target.value)} onClick={e => e.stopPropagation()} />
-          <select value={prioridade} onChange={e => setPrioridade(e.target.value)} onClick={e => e.stopPropagation()}>
-            <option value="4">Máximo</option>
-            <option value="3">Alta</option>
-            <option value="2">Média</option>
-            <option value="1">Baixa</option>
+          <input value={name} onChange={e => setName(e.target.value)} onClick={e => e.stopPropagation()} />
+          <input value={description} onChange={e => setDescription(e.target.value)} onClick={e => e.stopPropagation()} />
+          <select value={priority} onChange={e => setPriority(e.target.value)} onClick={e => e.stopPropagation()}>
+            <option value="4">Maximum</option>
+            <option value="3">High</option>
+            <option value="2">Medium</option>
+            <option value="1">Low</option>
           </select>
-          <button onClick={handleSalvar}>Salvar</button>
+          <button onClick={handleSave}>Save</button>
           <button className="btn-toggle" onClick={handleToggle}>
-            {todo.realizado ? "Desmarcar" : "Marcar como realizado"}
+            {todo.realizado ? "Unmark" : "Mark as done"}
           </button>
-          <button onClick={handleDelete}>Excluir</button>
+          <button onClick={handleDelete}>Delete</button>
         </>
       )}
     </div>
