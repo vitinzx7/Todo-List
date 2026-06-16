@@ -19,13 +19,18 @@ function TodoItem({ todo, onTodoUpdated, onTodoDeleted }) {
   return (
     <div className="todo-item" onClick={() => setAberto(!aberto)}>
       <p><strong>Nome:</strong> {todo.nome}</p>
-      <p><strong>Descrição:</strong> {todo.descricao}</p>
-      <p><strong>Prioridade:</strong> {todo.prioridade}</p>
       <p><strong>Status:</strong> {todo.realizado ? "Realizado" : "Pendente"}</p>
-      <button onClick={handleToggle}>
-        {todo.realizado ? "Desmarcar" : "Marcar como realizado"}
-      </button>
-      <button onClick={handleDelete}>Excluir</button>
+
+      {aberto && (
+        <>
+          <p><strong>Descrição:</strong> {todo.descricao}</p>
+          <p><strong>Prioridade:</strong> {todo.prioridade}</p>
+          <button onClick={e => { e.stopPropagation(); handleToggle(); }}>
+            {todo.realizado ? "Desmarcar" : "Marcar como realizado"}
+          </button>
+          <button onClick={e => { e.stopPropagation(); handleDelete(); }}>Excluir</button>
+        </>
+      )}
     </div>
   )
 }
