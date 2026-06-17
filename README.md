@@ -1,54 +1,45 @@
-# Todo List - Full Stack
+# Todo List
 
-Aplicação full stack para gerenciar tarefas (CRUD) com backend em Spring Boot e frontend em React.
+Full stack task manager with Spring Boot backend and React frontend.
 
-## Tecnologias
 
-### Backend
-- Java 21
-- Spring Boot
-- Spring MVC
-- Spring Data JPA
-- MySQL
+https://github.com/user-attachments/assets/8d53cdfb-d604-4481-9e49-ffcacae6b249
 
-### Frontend
-- React
-- Vite
-- JavaScript (ES6+)
 
-## Práticas adotadas
-- API REST
-- Separação de responsabilidades (Controller, Service, Repository)
-- Componentes React reutilizáveis
-- Camada de API isolada no frontend
-- Gerenciamento de estado com hooks (useState, useEffect)
-- Credenciais separadas do código com Spring Profiles
+![Demo](./demo.gif)
 
-## Como Executar
+## Tech Stack
 
-### Backend
+**Backend:** Java 21, Spring Boot, Spring Data JPA, MySQL
 
-Clonar o repositório:
-```bash
-git clone https://github.com/vitinzx7/Todo-List
-```
+**Frontend:** React, Vite, JavaScript
 
-Configurar as variáveis de ambiente (ou criar `application-local.properties`):
-```
-DB_URL=jdbc:mysql://localhost:3306/todolist
-DB_USERNAME=seu_usuario
-DB_PASSWORD=sua_senha
-```
+## Features
 
-Executar o backend:
+- Create, edit, and delete tasks
+- Priority levels (High, Medium, Low)
+- Mark tasks as done with visual feedback
+- Real-time search
+- Animated transitions
+
+## Running locally
+
+**Backend**
+
 ```bash
 cd todoolist
 ./mvnw spring-boot:run
 ```
 
-A API estará disponível em `http://localhost:8080`.
+Configure your database credentials in `application-local.properties`:
 
-### Frontend
+```
+DB_URL=jdbc:mysql://localhost:3306/todolist
+DB_USERNAME=your_user
+DB_PASSWORD=your_password
+```
+
+**Frontend**
 
 ```bash
 cd todoolist-web
@@ -56,43 +47,14 @@ npm install
 npm run dev
 ```
 
-O frontend estará disponível em `http://localhost:5173`.
+## API
 
-## API Endpoints
+| Method | Endpoint    | Description    |
+|--------|-------------|----------------|
+| GET    | /todos      | List all tasks |
+| POST   | /todos      | Create task    |
+| PUT    | /todos      | Update task    |
+| DELETE | /todos/{id} | Delete task    |
 
-### Criar Tarefa
-```
-POST /todos
-```
-```json
-{
-  "nome": "Todo 1",
-  "descricao": "Desc Todo 1",
-  "prioridade": 1,
-  "realizado": false
-}
-```
 
-### Listar Tarefas
-```
-GET /todos
-```
 
-### Atualizar Tarefa
-```
-PUT /todos
-```
-```json
-{
-  "id": 1,
-  "nome": "Todo 1 Atualizado",
-  "descricao": "Desc atualizada",
-  "prioridade": 2,
-  "realizado": true
-}
-```
-
-### Remover Tarefa
-```
-DELETE /todos/{id}
-```
