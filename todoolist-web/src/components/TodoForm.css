@@ -13,7 +13,7 @@
   margin: 0 0 8px 0;
   font-size: 16px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: #c8cece;
   letter-spacing: 0.3px;
 }
 
@@ -21,15 +21,15 @@
   padding: 10px 14px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: #f6f7c7;
+  color: #333;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s ease;
 }
 
 .todo-form input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(0, 0, 0, 0.65);
 }
 
 .todo-form input:focus {

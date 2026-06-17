@@ -10,7 +10,7 @@ function TodoForm({ onTodoCreated }) {
   function handleSubmit(e) {
     e.preventDefault()
     createTodo({ nome: name, descricao: description, prioridade: priority, realizado: false })
-      .then(todos => onTodoCreated(todos))
+      .then(todos => { onTodoCreated(todos); setName(''); setDescription(''); setPriority(1) })
   }
 
   return (
