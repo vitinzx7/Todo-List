@@ -3,7 +3,8 @@
 Full stack task manager with Spring Boot backend and React frontend.
 
 
-<img width="1140" height="640" alt="202606171652" src="https://github.com/user-attachments/assets/0e7c9d52-9104-4082-8ee9-08dcdca083ca" />
+<img width="1140" height="640" alt="202606181248" src="https://github.com/user-attachments/assets/40bb6870-0bcd-4ced-b9fd-17eaa4cdd94f" />
+
 
 ## Tech Stack
 
