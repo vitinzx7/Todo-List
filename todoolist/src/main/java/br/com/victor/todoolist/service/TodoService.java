@@ -18,27 +18,27 @@ public class TodoService {
 
     public List<Todo> create(Todo todo) {
         todoRepository.save(todo);
-        return list();
+        return list(todo.getClientId());
 
     }
 
-      public List<Todo> list() {
+      public List<Todo> list(String clientId) {
        Sort sort = Sort.by("prioridade").descending().and(
             Sort.by("nome").ascending());
-         return todoRepository.findAll(sort);
-        
+         return todoRepository.findByClientId(clientId, sort);
+
     }
 
       public List<Todo> update(Todo todo) {
         todoRepository.save(todo);
-          return list();
-        
+          return list(todo.getClientId());
+
     }
 
-      public List<Todo> delete(Long id) {
+      public List<Todo> delete(Long id, String clientId) {
         todoRepository.deleteById(id);
-          return list();
-        
+          return list(clientId);
+
     }
     
 }

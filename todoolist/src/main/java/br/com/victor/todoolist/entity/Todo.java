@@ -16,9 +16,10 @@ public class Todo {
     private String descricao;
     private boolean realizado;
     private int prioridade;
+    private String clientId;
 
 
-    
+
     public Todo() {}
 
     public Todo(String nome, String descricao, boolean realizado, int prioridade) {
@@ -57,5 +58,11 @@ public class Todo {
     public void setPrioridade(int prioridade) {
         this.prioridade = prioridade;
     }
-    
+    public String getClientId() {
+        return clientId;
+    }
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
 }

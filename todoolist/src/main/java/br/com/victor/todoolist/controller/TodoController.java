@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import br.com.victor.todoolist.entity.Todo;
 import br.com.victor.todoolist.service.TodoService;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://todo-list-five-beta-44.vercel.app")
 @RestController
 @RequestMapping("/todos")
 public class TodoController {
@@ -32,8 +33,8 @@ public class TodoController {
     }
 
     @GetMapping
-    List<Todo> list() {
-        return todoService.list();
+    List<Todo> list(@RequestParam("clientId") String clientId) {
+        return todoService.list(clientId);
     }
 
     @PutMapping
@@ -42,7 +43,7 @@ public class TodoController {
     }
 
     @DeleteMapping("{id}")
-    List<Todo> delete(@PathVariable("id") Long id) {
-        return todoService.delete(id);
+    List<Todo> delete(@PathVariable("id") Long id, @RequestParam("clientId") String clientId) {
+        return todoService.delete(id, clientId);
     }
 }
