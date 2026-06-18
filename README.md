@@ -1,43 +1,40 @@
 # Todo List
 
-Full stack task manager with Spring Boot backend and React frontend.
-
+Gerenciador de tarefas full stack com back-end em Spring Boot e front-end em React.
 
 <img width="1140" height="640" alt="202606181248" src="https://github.com/user-attachments/assets/40bb6870-0bcd-4ced-b9fd-17eaa4cdd94f" />
 
+## Tecnologias
 
-## Tech Stack
+**Back-end:** Java 21, Spring Boot, Spring Data JPA, MySQL  
+**Front-end:** React, Vite, JavaScript
 
-**Backend:** Java 21, Spring Boot, Spring Data JPA, MySQL
+## Funcionalidades
 
-**Frontend:** React, Vite, JavaScript
+- Criar, editar e excluir tarefas
+- Níveis de prioridade (Alta, Média, Baixa)
+- Marcar tarefas como concluídas com feedback visual
+- Busca em tempo real
+- Transições animadas
 
-## Features
+## Rodando localmente
 
-- Create, edit, and delete tasks
-- Priority levels (High, Medium, Low)
-- Mark tasks as done with visual feedback
-- Real-time search
-- Animated transitions
-
-## Running locally
-
-**Backend**
+**Back-end**
 
 ```bash
 cd todoolist
 ./mvnw spring-boot:run
 ```
 
-Configure your database credentials in `application-local.properties`:
+Configure as credenciais do seu banco de dados em `application-local.properties`:
 
 ```
 DB_URL=jdbc:mysql://localhost:3306/todolist
-DB_USERNAME=your_user
-DB_PASSWORD=your_password
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
 ```
 
-**Frontend**
+**Front-end**
 
 ```bash
 cd todoolist-web
@@ -47,12 +44,12 @@ npm run dev
 
 ## API
 
-| Method | Endpoint    | Description    |
-|--------|-------------|----------------|
-| GET    | /todos      | List all tasks |
-| POST   | /todos      | Create task    |
-| PUT    | /todos      | Update task    |
-| DELETE | /todos/{id} | Delete task    |
+| Método | Endpoint    | Descrição              |
+|--------|-------------|------------------------|
+| GET    | /todos      | Listar todas as tarefas |
+| POST   | /todos      | Criar tarefa           |
+| PUT    | /todos      | Atualizar tarefa       |
+| DELETE | /todos/{id} | Excluir tarefa         |
 
 
 
