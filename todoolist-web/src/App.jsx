@@ -6,6 +6,7 @@ import TodoForm from './components/TodoForm'
 function App() {
   const [todos, setTodos] = useState([])
   const [search, setSearch] = useState('')
+  const [clearingIds, setClearingIds] = useState([])
 
   useEffect(() => {
     getTodos().then(data => setTodos(data))
@@ -17,8 +18,11 @@ function App() {
 
   async function handleClearDone() {
     const done = todos.filter(t => t.realizado)
-    await Promise.all(done.map(t => deleteTodo(t.id)))
-    getTodos().then(data => setTodos(data))
+    setClearingIds(done.map(t => t.id))
+    setTimeout(async () => {
+      await Promise.all(done.map(t => deleteTodo(t.id)))
+      getTodos().then(data => { setTodos(data); setClearingIds([]) })
+    }, 450)
   }
 
   const hasDone = todos.some(t => t.realizado)
@@ -58,7 +62,7 @@ function App() {
               return b.prioridade - a.prioridade
             })
             .map(todo => (
-              <TodoItem key={todo.id} todo={todo} onTodoUpdated={handleTodoUpdated} onTodoDeleted={handleTodoDeleted} />
+              <TodoItem key={todo.id} todo={todo} onTodoUpdated={handleTodoUpdated} onTodoDeleted={handleTodoDeleted} isClearing={clearingIds.includes(todo.id)} />
             ))}
           {hasDone && (
             <div className="btn-clear-done-wrapper">

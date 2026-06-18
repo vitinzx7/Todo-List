@@ -15,6 +15,12 @@
   box-shadow: none;
 }
 
+.todo-item.clearing {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 .todo-item.completing {
   opacity: 0.2;
   transform: translateY(6px);

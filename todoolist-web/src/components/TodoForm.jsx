@@ -28,7 +28,6 @@ function TodoForm({ onTodoCreated }) {
         placeholder="Description"
       />
       <select value={priority} onChange={e => setPriority(e.target.value)}>
-        <option value="4">Maximum</option>
         <option value="3">High</option>
         <option value="2">Medium</option>
         <option value="1">Low</option>
