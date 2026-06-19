@@ -114,3 +114,24 @@ h1 {
   text-align: center;
   text-transform: uppercase;
 }
+
+@media (max-width: 640px) {
+  #root {
+    padding: 16px;
+  }
+
+  .app-layout {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .app-form {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 22px;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+  }
+}
