@@ -24,7 +24,7 @@ function TodoItem({ todo, onTodoUpdated, onTodoDeleted, isClearing }) {
     setTimeout(() => {
       updateTodo({ ...todo, realizado: !todo.realizado })
         .then(todos => { onTodoUpdated(todos); setOpen(false); setCompleting(false) })
-    }, 150)
+    }, 100)
   }
 
   function handleDelete(e) {
